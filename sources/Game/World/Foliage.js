@@ -1,6 +1,6 @@
 import * as THREE from 'three/webgpu'
 import { Game } from '../Game.js'
-import { color, uniform, mix, output, instance, smoothstep, min, vec4, PI, vertexIndex, rotateUV, sin, uv, texture, float, Fn, positionLocal, vec3, transformNormalToView, normalWorld, positionWorld, frontFacing, If, screenUV, vec2, viewportResolution, screenSize, instanceIndex, varying, range, positionGeometry, storage, instancedBufferAttribute, normalLocal } from 'three/tsl'
+import { color, uniform, mix, output, instance, smoothstep, min, vec4, PI, vertexIndex, rotateUV, sin, uv, texture, float, Fn, positionLocal, vec3, transformNormalToView, normalWorld, positionWorld, frontFacing, If, screenUV, vec2, screenSize, instanceIndex, varying, range, positionGeometry, storage, instancedBufferAttribute, normalLocal } from 'three/tsl'
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js'
 import { remap } from '../utilities/maths.js'
 import { MeshDefaultMaterial } from '../Materials/MeshDefaultMaterial.js'
@@ -152,9 +152,9 @@ export class Foliage
         // this.material.instance.outputNode = vec4(colorNode, 1)
     
         // Position
-        this.material.instance.positionNode = Fn( ( { object } ) =>
+        this.material.instance.positionNode = Fn(() =>
         {
-            instance(object.count, this.instanceMatrix).toStack()
+            instance(this.instanceMatrix)
 
             return positionLocal//.add(vec3(wind.x, 0, wind.y).mul(multiplier))
         })()

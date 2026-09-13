@@ -117,28 +117,13 @@ export class InteractivePoints
         mesh.position.z = 0.01
         mesh.visible = false
 
-        this.game.inputs.gamepad.events.on('typeChange', () =>
+        const updateIcon = () =>
         {
             if(this.game.inputs.mode === Inputs.MODE_GAMEPAD)
             {
-                let iconTexture = this.game.resources.interactivePointsKeyIconCrossTexture
-                
-                if(this.game.inputs.gamepad.type === 'xbox')
-                     iconTexture = this.game.resources.interactivePointsKeyIconATexture
-
-                material.outputNode = iconOutput(texture(iconTexture, vec2(uv().x, uv().y.oneMinus())).r)
-                material.needsUpdate = true
-            }
-        })
-
-        this.game.inputs.events.on('modeChange', () =>
-        {
-            if(this.game.inputs.mode === Inputs.MODE_GAMEPAD)
-            {
-                let iconTexture = this.game.resources.interactivePointsKeyIconCrossTexture
-                
-                if(this.game.inputs.gamepad.type === 'xbox')
-                     iconTexture = this.game.resources.interactivePointsKeyIconATexture
+                const iconTexture = this.game.inputs.gamepadType === 'xbox'
+                    ? this.game.resources.interactivePointsKeyIconATexture
+                    : this.game.resources.interactivePointsKeyIconCrossTexture
 
                 material.outputNode = iconOutput(texture(iconTexture, vec2(uv().x, uv().y.oneMinus())).r)
                 material.needsUpdate = true
@@ -152,7 +137,11 @@ export class InteractivePoints
             {
                 mesh.visible = false
             }
-        })
+        }
+
+        this.game.inputs.events.on('gamepadTypeChange', updateIcon)
+        this.game.inputs.events.on('modeChange', updateIcon)
+        updateIcon()
 
         // Save
         this.keyIcon = mesh

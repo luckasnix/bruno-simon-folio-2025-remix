@@ -130,13 +130,13 @@ export class ProjectsArea extends Area
 
         this.game.inputs.events.on('forward', (action) =>
         {
-            if(action.active && !action.activeKeys.has('Gamepad.r2'))
+            if(action.active && !action.activeKeys.has('Gamepad.RightTrigger'))
                 this.previous()
         })
 
         this.game.inputs.events.on('backward', (action) =>
         {
-            if(action.active && !action.activeKeys.has('Gamepad.l2'))
+            if(action.active && !action.activeKeys.has('Gamepad.LeftTrigger'))
                 this.next()
         })
 
@@ -1148,20 +1148,13 @@ export class ProjectsArea extends Area
         this.blackBoard.labelsGamepadPlaystation.visible = false
         this.blackBoard.labelsGamepadXbox.visible = false
         
-        this.game.inputs.events.on('modeChange', () =>
+        const updateLabels = () =>
         {
             if(this.game.inputs.mode === Inputs.MODE_GAMEPAD)
             {
-                if(this.game.inputs.gamepad.type === 'xbox')
-                {
-                    this.blackBoard.labelsGamepadXbox.visible = true
-                    this.blackBoard.labelsGamepadPlaystation.visible = false
-                }
-                else
-                {
-                    this.blackBoard.labelsGamepadXbox.visible = false
-                    this.blackBoard.labelsGamepadPlaystation.visible = true
-                }
+                const isXbox = this.game.inputs.gamepadType === 'xbox'
+                this.blackBoard.labelsGamepadXbox.visible = isXbox
+                this.blackBoard.labelsGamepadPlaystation.visible = !isXbox
                 this.blackBoard.labelsMouseKeyboard.visible = false
 
                 this.blackBoard.parent.add(this.blackBoard.group)
@@ -1177,24 +1170,11 @@ export class ProjectsArea extends Area
             {
                 this.blackBoard.parent.remove(this.blackBoard.group)
             }
-        })
+        }
 
-        this.game.inputs.gamepad.events.on('typeChange', () =>
-        {
-            if(this.game.inputs.mode === Inputs.MODE_GAMEPAD)
-            {
-                if(this.game.inputs.gamepad.type === 'xbox')
-                {
-                    this.blackBoard.labelsGamepadXbox.visible = true
-                    this.blackBoard.labelsGamepadPlaystation.visible = false
-                }
-                else
-                {
-                    this.blackBoard.labelsGamepadXbox.visible = false
-                    this.blackBoard.labelsGamepadPlaystation.visible = true
-                }
-            }
-        })
+        this.game.inputs.events.on('gamepadTypeChange', updateLabels)
+        this.game.inputs.events.on('modeChange', updateLabels)
+        updateLabels()
     }
 
     setOven()

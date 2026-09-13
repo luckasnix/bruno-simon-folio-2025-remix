@@ -129,16 +129,7 @@ export class Intro
             let name = 'mouseKeyboard'
             
             if(this.game.inputs.mode === Inputs.MODE_GAMEPAD)
-            {
-                if(this.game.inputs.gamepad.type === 'xbox')
-                {
-                    name = 'gamepadXbox'
-                }
-                else
-                {
-                    name = 'gamepadPlaystation'
-                }
-            }
+                name = this.game.inputs.gamepadType === 'xbox' ? 'gamepadXbox' : 'gamepadPlaystation'
             else if(this.game.inputs.mode === Inputs.MODE_TOUCH)
             {
                 name = 'touch'
@@ -188,7 +179,7 @@ export class Intro
             transparent: true
         })
 
-        this.game.inputs.gamepad.events.on('typeChange', this.text.updateTexture)
+        this.game.inputs.events.on('gamepadTypeChange', this.text.updateTexture)
         this.game.inputs.events.on('modeChange', this.text.updateTexture)
 
         const mesh = new THREE.Mesh(geometry, material)
@@ -337,7 +328,7 @@ export class Intro
         
         // Events
         this.game.ticker.events.off('tick', this.update)
-        this.game.inputs.gamepad.events.off('typeChange', this.text.updateTexture)
+        this.game.inputs.events.off('gamepadTypeChange', this.text.updateTexture)
         this.game.inputs.events.off('modeChange', this.text.updateTexture)
     }
 }

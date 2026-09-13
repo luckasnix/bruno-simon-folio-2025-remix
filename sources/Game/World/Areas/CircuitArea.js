@@ -655,7 +655,7 @@ export class CircuitArea extends Area
     setRespawn()
     {
         this.game.inputs.addActions([
-            { name: 'circuitRestart', categories: [ 'racing' ], keys: [ 'Keyboard.KeyR', 'Gamepad.select' ] },
+            { name: 'circuitRestart', categories: [ 'racing' ], keys: [ 'Keyboard.KeyR', 'Gamepad.Select' ] },
         ])
 
         // Reset

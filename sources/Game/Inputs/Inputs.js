@@ -1,12 +1,23 @@
+import {
+    GAMEPAD_AXIS,
+    GAMEPAD_BUTTON,
+    gamepadStickPipeline,
+    GamepadInput
+} from 'three-gamepad-controls'
 import { Events } from '../Events.js'
 import { Game } from '../Game.js'
-import { Gamepad } from './Gamepad.js'
 import { Pointer } from './Pointer.js'
 import Keyboard from './Keyboard.js'
 import { InteractiveButtons } from './InteractiveButtons.js'
 import { Wheel } from './Wheel.js'
 import { Nipple } from './Nipple.js'
 import ObservableSet from '../utilities/ObservableSet.js'
+
+const gamepadButtons = Object.entries(GAMEPAD_BUTTON)
+const gamepadLeftStickPipeline = gamepadStickPipeline({ mode: 'axial' })
+    .deadzone(0.2, { rescale: true })
+const gamepadRightStickPipeline = gamepadStickPipeline({ mode: 'radial' })
+    .deadzone(0.2, { rescale: false })
 
 export class Inputs
 {
@@ -81,35 +92,108 @@ export class Inputs
 
     setGamepad()
     {
-        this.gamepad = new Gamepad()
+        this.gamepad = new GamepadInput({ axisDeadzone: 0.2 })
+        this.gamepadButtonValues = new Map(gamepadButtons.map(([ name ]) => [ name, 0 ]))
+        this.gamepadSticks = {
+            left: { x: 0, y: 0, active: false },
+            right: { x: 0, y: 0, active: false }
+        }
+        this.gamepadType = 'default'
+        document.documentElement.classList.add(`is-gamepad-${this.gamepadType}`)
 
-        this.gamepad.events.on('down', (key) =>
+        this.gamepad.addEventListener('connected', (event) =>
         {
+            this.updateGamepadType(event.gamepad)
+
+            for(const [ buttonName, buttonIndex ] of gamepadButtons)
+                this.gamepadButtonValues.set(buttonName, this.gamepad.buttonValue(buttonIndex))
+        })
+
+        this.gamepad.addEventListener('disconnected', () =>
+        {
+            for(const [ buttonName ] of gamepadButtons)
+            {
+                const key = `Gamepad.${buttonName}`
+                this.end(key)
+                this.gamepadButtonValues.set(buttonName, 0)
+            }
+
+            this.gamepadSticks.left = { x: 0, y: 0, active: false }
+            this.gamepadSticks.right = { x: 0, y: 0, active: false }
+        })
+    }
+
+    updateGamepadType(gamepad)
+    {
+        let type = 'default'
+
+        if(/xbox/i.test(gamepad.id))
+            type = 'xbox'
+        else if(/playstation|dualshock|dualsense|ps\d/i.test(gamepad.id))
+            type = 'playstation'
+
+        if(type === this.gamepadType)
+            return
+
+        document.documentElement.classList.remove(`is-gamepad-${this.gamepadType}`)
+        this.gamepadType = type
+        document.documentElement.classList.add(`is-gamepad-${this.gamepadType}`)
+        this.events.trigger('gamepadTypeChange', [ this.gamepadType ])
+    }
+
+    updateGamepad()
+    {
+        this.gamepad.update()
+
+        for(const [ buttonName, buttonIndex ] of gamepadButtons)
+        {
+            const key = `Gamepad.${buttonName}`
+            const value = this.gamepad.buttonValue(buttonIndex)
+            const previousValue = this.gamepadButtonValues.get(buttonName)
+
+            if(this.gamepad.wasPressed(buttonIndex) && this.gamepad.isPressed(buttonIndex))
+            {
+                this.updateMode(Inputs.MODE_GAMEPAD)
+                this.start(key, value)
+            }
+            else if(this.gamepad.wasReleased(buttonIndex))
+            {
+                this.updateMode(Inputs.MODE_GAMEPAD)
+                this.end(key)
+            }
+
+            if(value !== previousValue)
+            {
+                this.updateMode(Inputs.MODE_GAMEPAD)
+                this.change(key, value)
+                this.gamepadButtonValues.set(buttonName, value)
+            }
+        }
+
+        const leftStick = this.gamepad.stick(
+            GAMEPAD_AXIS.LeftX,
+            GAMEPAD_AXIS.LeftY,
+            gamepadLeftStickPipeline
+        )
+        const rightStick = this.gamepad.stick(
+            GAMEPAD_AXIS.RightX,
+            GAMEPAD_AXIS.RightY,
+            gamepadRightStickPipeline
+        )
+
+        this.updateGamepadStick('left', leftStick)
+        this.updateGamepadStick('right', rightStick)
+    }
+
+    updateGamepadStick(name, value)
+    {
+        const savedValue = this.gamepadSticks[name]
+        const active = value.x !== 0 || value.y !== 0
+
+        if(value.x !== savedValue.x || value.y !== savedValue.y)
             this.updateMode(Inputs.MODE_GAMEPAD)
-            this.start(`Gamepad.${key.name}`, key.value)
-        })
 
-        this.gamepad.events.on('up', (key) =>
-        {
-            this.updateMode(Inputs.MODE_GAMEPAD)
-            this.end(`Gamepad.${key.name}`)
-        })
-
-        this.gamepad.events.on('typeChange', (key) =>
-        {
-            this.updateMode(Inputs.MODE_GAMEPAD)
-        })
-
-        this.gamepad.events.on('change', (key) =>
-        {
-            this.updateMode(Inputs.MODE_GAMEPAD)
-            this.change(`Gamepad.${key.name}`, key.value)
-        })
-
-        this.gamepad.events.on('joystickChange', (joystick) =>
-        {
-            this.change(`Gamepad.joystick${joystick.name.charAt(0).toUpperCase() + joystick.name.slice(1)}`, { x: joystick.x, y: joystick.y, radius: joystick.radius, active: joystick.active })
-        })
+        this.gamepadSticks[name] = { x: value.x, y: value.y, active }
     }
 
     setPointer()
@@ -327,8 +411,8 @@ export class Inputs
 
     update()
     {
+        this.updateGamepad()
         this.pointer.update()
-        this.gamepad.update()
         this.nipple.update()
     }
 }

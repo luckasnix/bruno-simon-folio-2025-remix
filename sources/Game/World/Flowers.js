@@ -135,9 +135,9 @@ export class Flowers
         const wind = this.game.wind.offsetNode(positionLocal.xz)
         const multiplier = positionLocal.y.clamp(0, 1).mul(1)
 
-        this.material.positionNode = Fn( ( { object } ) =>
+        this.material.positionNode = Fn(() =>
         {
-            instance(object.count, this.instanceMatrix).toStack()
+            instance(this.instanceMatrix)
 
             return positionLocal.add(vec3(wind.x, 0, wind.y).mul(multiplier))
         })()

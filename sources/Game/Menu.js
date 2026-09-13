@@ -146,8 +146,8 @@ export class Menu
     setGamepad()
     {
         this.game.inputs.addActions([
-            { name: 'next', categories: [ 'menu' ], keys: [ 'Gamepad.r1' ] },
-            { name: 'prev', categories: [ 'menu' ], keys: [ 'Gamepad.l1' ] }
+            { name: 'next', categories: [ 'menu' ], keys: [ 'Gamepad.RightShoulder' ] },
+            { name: 'prev', categories: [ 'menu' ], keys: [ 'Gamepad.LeftShoulder' ] }
         ])
 
         // Respawn
