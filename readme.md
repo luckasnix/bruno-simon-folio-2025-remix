@@ -6,18 +6,26 @@
 
 Create `.env` file based on `.env.example`
 
-Download and install [Node.js](https://nodejs.org/en/download/) then run this followed commands:
+Install [Node.js](https://nodejs.org/en/download/) 20.19+ or 22.12+ (Vite 8 requirement), then run:
 
 ``` bash
 # Install dependencies
-npm install --force
+npm ci
 
-# Serve at localhost:1234
+# Serve at localhost:5173
 npm run dev
 
 # Build for production in the dist/ directory
 npm run build
+
+# Preview the production build at localhost:4173
+npm run preview
 ```
+
+Vite 8 uses Rolldown and targets modern browsers with native top-level await,
+including the WebAssembly initialization used by Rapier. The WASM and Node
+polyfill plugins support Vite 8. Changes to `static/` reload the page through
+Vite's watcher without a separate restart plugin.
 
 ## Game loop
 

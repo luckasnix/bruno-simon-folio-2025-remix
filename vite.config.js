@@ -1,7 +1,6 @@
 import 'dotenv/config'
-import restart from 'vite-plugin-restart'
+import { normalizePath, withFilter } from 'vite'
 import wasm from 'vite-plugin-wasm'
-import topLevelAwait from 'vite-plugin-top-level-await'
 import basicSsl from '@vitejs/plugin-basic-ssl'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
 
@@ -24,10 +23,25 @@ export default {
     },
     plugins:
     [
+        // Vite 8's default browser target supports the top-level await used by WASM.
         wasm(),
-        topLevelAwait(),
-        restart({ restart: [ '../static/**', ] }), // Restart server on static file change
-        nodePolyfills(),
+        // The global-injection transform must not try to parse Stylus/CSS as JS.
+        withFilter(nodePolyfills(), { transform: { id: /\.[cm]?js(?:\?.*)?$/ } }),
+        {
+            name: 'reload-static-assets',
+            apply: 'serve',
+            configureServer(server)
+            {
+                const publicDir = `${normalizePath(server.config.publicDir)}/`
+
+                // Public assets loaded by the game are outside Vite's module graph.
+                server.watcher.on('all', (event, file) =>
+                {
+                    if(['add', 'change', 'unlink'].includes(event) && normalizePath(file).startsWith(publicDir))
+                        server.ws.send({ type: 'full-reload', path: '*' })
+                })
+            }
+        },
         // basicSsl()
     ]
 }
