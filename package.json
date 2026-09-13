@@ -18,14 +18,10 @@
   "dependencies": {
     "@dimforge/rapier3d": "^0.20.0",
     "@gltf-transform/cli": "^4.1.0",
-    "@gltf-transform/core": "^4.2.1",
-    "@gltf-transform/extensions": "^4.2.1",
-    "@gltf-transform/functions": "^4.2.1",
     "@tweakpane/plugin-camerakit": "^0.3.0",
     "@tweakpane/plugin-essentials": "^0.2.1",
     "@vitejs/plugin-basic-ssl": "^2.3.0",
     "camera-controls": "^3.1.2",
-    "dotenv": "^17.2.3",
     "emoji-regex": "^10.4.0",
     "glob": "^13.0.0",
     "gsap": "^3.12.5",
@@ -40,7 +36,6 @@
     "three-gamepad-controls": "^0.24.0",
     "tweakpane": "^4.0.4",
     "vite": "^8.3.0",
-    "vite-plugin-node-polyfills": "^0.28.0",
     "vite-plugin-wasm": "^3.6.0"
   }
 }

@@ -1,8 +1,6 @@
-import 'dotenv/config'
-import { normalizePath, withFilter } from 'vite'
+import { normalizePath } from 'vite'
 import wasm from 'vite-plugin-wasm'
 import basicSsl from '@vitejs/plugin-basic-ssl'
-import { nodePolyfills } from 'vite-plugin-node-polyfills'
 
 export default {
     root: 'sources/', // Sources files (typically where index.html is)
@@ -25,8 +23,6 @@ export default {
     [
         // Vite 8's default browser target supports the top-level await used by WASM.
         wasm(),
-        // The global-injection transform must not try to parse Stylus/CSS as JS.
-        withFilter(nodePolyfills(), { transform: { id: /\.[cm]?js(?:\?.*)?$/ } }),
         {
             name: 'reload-static-assets',
             apply: 'serve',
