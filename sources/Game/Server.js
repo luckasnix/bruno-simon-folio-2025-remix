@@ -1,5 +1,4 @@
 import msgpack from 'msgpack-lite'
-import { v4 as uuidv4 } from 'uuid'
 import { Events } from './Events.js'
 import { Game } from './Game.js'
 
@@ -13,7 +12,7 @@ export class Server
         this.uuid = localStorage.getItem('uuid')
         if(!this.uuid)
         {
-            this.uuid = uuidv4()
+            this.uuid = crypto.randomUUID()
             localStorage.setItem('uuid', this.uuid)
         }
 
