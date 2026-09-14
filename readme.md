@@ -6,20 +6,20 @@
 
 Create `.env` file based on `.env.example`
 
-Install [Node.js](https://nodejs.org/en/download/) 20.19+ or 22.12+ (Vite 8 requirement), then run:
+Install [Node.js](https://nodejs.org/en/download/) 20.19+ or 22.12+ (Vite 8 requirement) and [pnpm 12.4.1](https://pnpm.io/installation). This project does not use Corepack. Then run:
 
 ``` bash
 # Install dependencies
-npm ci
+pnpm install --frozen-lockfile
 
 # Serve at localhost:5173
-npm run dev
+pnpm dev
 
 # Build for production in the dist/ directory
-npm run build
+pnpm build
 
 # Preview the production build at localhost:4173
-npm run preview
+pnpm preview
 ```
 
 Vite 8 uses Rolldown and targets modern browsers with native top-level await,
@@ -131,7 +131,7 @@ Vite's watcher without a separate restart plugin.
 
 ### Compress
 
-Run `npm run compress`
+Run `pnpm compress`
 
 Will do the following
 

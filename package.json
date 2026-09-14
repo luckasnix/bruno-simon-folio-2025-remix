@@ -6,6 +6,7 @@
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
   },
+  "packageManager": "pnpm@12.4.1",
   "scripts": {
     "dev": "vite --mode development",
     "build": "vite build --mode production",
