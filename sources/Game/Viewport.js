@@ -1,49 +1,42 @@
-import { Events } from './Events.js'
+import { Events } from "./Events.js";
 
-export class Viewport
-{
-    constructor(domElement)
-    {
-        this.domElement = domElement
+export class Viewport {
+  constructor(domElement) {
+    this.domElement = domElement;
 
-        this.events = new Events()
-        
-        this.measure()
-        this.setResize()
-    }
+    this.events = new Events();
 
-    measure()
-    {
-        const bounding = this.domElement.getBoundingClientRect()
+    this.measure();
+    this.setResize();
+  }
 
-        this.width = bounding.width
-        this.height = bounding.height
-        this.ratio = this.width / this.height
+  measure() {
+    const bounding = this.domElement.getBoundingClientRect();
 
-        this.pixelRatioPure = window.devicePixelRatio
-        this.pixelRatioMax = 2
-        this.pixelRatio = Math.min(this.pixelRatioPure, this.pixelRatioMax)
-    }
+    this.width = bounding.width;
+    this.height = bounding.height;
+    this.ratio = this.width / this.height;
 
-    setResize()
-    {
-        const throttleDuration = 400
-        let throttleTimeout = null
-        addEventListener('resize', () =>
-        {
-            this.measure()
-            this.events.trigger('change')
+    this.pixelRatioPure = window.devicePixelRatio;
+    this.pixelRatioMax = 2;
+    this.pixelRatio = Math.min(this.pixelRatioPure, this.pixelRatioMax);
+  }
 
-            if(throttleTimeout)
-            {
-                clearTimeout(throttleTimeout)
-            }
+  setResize() {
+    const throttleDuration = 400;
+    let throttleTimeout = null;
+    addEventListener("resize", () => {
+      this.measure();
+      this.events.trigger("change");
 
-            throttleTimeout = setTimeout(() =>
-            {
-                throttleTimeout = null
-                this.events.trigger('throttleChange')
-            }, throttleDuration)
-        })
-    }
+      if (throttleTimeout) {
+        clearTimeout(throttleTimeout);
+      }
+
+      throttleTimeout = setTimeout(() => {
+        throttleTimeout = null;
+        this.events.trigger("throttleChange");
+      }, throttleDuration);
+    });
+  }
 }

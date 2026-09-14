@@ -1,0 +1,12 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "proseWrap": "never",
+  "ignorePatterns": [
+    "static/draco/**",
+    "static/basis/**",
+    "static/favicons/site.webmanifest",
+    "static/sounds/musics/license.md",
+    "dist/**",
+    "node_modules/**"
+  ]
+}

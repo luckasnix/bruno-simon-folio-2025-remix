@@ -8,7 +8,7 @@ Create `.env` file based on `.env.example`
 
 Install [Node.js](https://nodejs.org/en/download/) 20.19+ or 22.12+ (Vite 8 requirement) and [pnpm 12.4.1](https://pnpm.io/installation). This project does not use Corepack. Then run:
 
-``` bash
+```bash
 # Install dependencies
 pnpm install --frozen-lockfile
 
@@ -22,10 +22,25 @@ pnpm build
 pnpm preview
 ```
 
-Vite 8 uses Rolldown and targets modern browsers with native top-level await,
-including the WebAssembly initialization used by Rapier. The WASM and Node
-polyfill plugins support Vite 8. Changes to `static/` reload the page through
-Vite's watcher without a separate restart plugin.
+## Code quality
+
+Uses [Oxfmt](https://oxc.rs/docs/guide/usage/formatter.html) for formatting and [Oxlint](https://oxc.rs/docs/guide/usage/linter) for linting.
+
+```bash
+# Format files
+pnpm fmt
+
+# Check formatting
+pnpm fmt:check
+
+# Run lint checks
+pnpm lint
+
+# Apply safe lint fixes
+pnpm lint:fix
+```
+
+Install the recommended **Oxc** VS Code extension (`oxc.oxc-vscode`) to format on save.
 
 ## Game loop
 

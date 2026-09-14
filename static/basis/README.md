@@ -1,19 +1,14 @@
 # Basis Universal GPU Texture Compression
 
-Basis Universal is a "[supercompressed](http://gamma.cs.unc.edu/GST/gst.pdf)"
-GPU texture and texture video compression system that outputs a highly
-compressed intermediate file format (.basis) that can be quickly transcoded to
-a wide variety of GPU texture compression formats.
+Basis Universal is a "[supercompressed](http://gamma.cs.unc.edu/GST/gst.pdf)" GPU texture and texture video compression system that outputs a highly compressed intermediate file format (.basis) that can be quickly transcoded to a wide variety of GPU texture compression formats.
 
 [GitHub](https://github.com/BinomialLLC/basis_universal)
 
 ## Transcoders
 
-Basis Universal texture data may be used in two different file formats:
-`.basis` and `.ktx2`, where `ktx2` is a standardized wrapper around basis texture data.
+Basis Universal texture data may be used in two different file formats: `.basis` and `.ktx2`, where `ktx2` is a standardized wrapper around basis texture data.
 
-For further documentation about the Basis compressor and transcoder, refer to
-the [Basis GitHub repository](https://github.com/BinomialLLC/basis_universal).
+For further documentation about the Basis compressor and transcoder, refer to the [Basis GitHub repository](https://github.com/BinomialLLC/basis_universal).
 
 The folder contains two files required for transcoding `.basis` or `.ktx2` textures:
 

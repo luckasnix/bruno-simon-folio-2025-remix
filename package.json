@@ -1,21 +1,21 @@
 {
   "name": "bruno-simon-folio-2025",
   "version": "0.0.0",
-  "main": "index.js",
+  "description": "",
+  "license": "ISC",
+  "author": "",
   "type": "module",
-  "engines": {
-    "node": "^20.19.0 || >=22.12.0"
-  },
-  "packageManager": "pnpm@12.4.1",
+  "main": "index.js",
   "scripts": {
     "dev": "vite --mode development",
     "build": "vite build --mode production",
     "preview": "vite preview",
-    "compress": "node scripts/compress.js static/"
+    "compress": "node scripts/compress.js static/",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix"
   },
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "@dimforge/rapier3d": "0.20.0",
     "@tweakpane/plugin-camerakit": "0.3.0",
@@ -36,9 +36,15 @@
     "@gltf-transform/cli": "4.5.0",
     "@vitejs/plugin-basic-ssl": "2.3.0",
     "glob": "13.0.6",
+    "oxfmt": "0.67.0",
+    "oxlint": "1.82.0",
     "sharp": "0.35.4",
     "stylus": "0.64.0",
     "vite": "8.3.0",
     "vite-plugin-wasm": "3.6.0"
-  }
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "packageManager": "pnpm@12.4.1"
 }
