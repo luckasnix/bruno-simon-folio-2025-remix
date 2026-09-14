@@ -5,7 +5,7 @@
     "static/draco/**",
     "static/basis/**",
     "static/favicons/site.webmanifest",
-    "static/sounds/musics/license.md",
+    "static/sounds/musics/LICENSE.md",
     "dist/**",
     "node_modules/**"
   ]
