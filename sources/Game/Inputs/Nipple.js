@@ -1,11 +1,10 @@
-import { abs, atan, float, Fn, If, max, min, PI, positionGeometry, positionWorld, step, uniform, vec2, vec3, vec4 } from 'three/tsl'
+import gsap from 'gsap'
+import { clamp } from 'three/src/math/MathUtils.js'
+import { abs, atan, float, Fn, If, max, positionGeometry, step, uniform, vec2, vec3, vec4 } from 'three/tsl'
 import * as THREE from 'three/webgpu'
 import { Game } from '../Game.js'
-import { clamp } from 'three/src/math/MathUtils.js'
 import { smallestAngle } from '../utilities/maths.js'
-import gsap from 'gsap'
 import { Events } from '../Events.js'
-import { Inputs } from './Inputs.js'
 
 export class Nipple
 {

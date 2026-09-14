@@ -1,6 +1,6 @@
+import { Fn, color, float, frontFacing, If, max, mix, normalWorld, positionWorld, vec3, vec4 } from 'three/tsl'
 import * as THREE from 'three/webgpu'
 import { Game } from '../Game.js'
-import { Fn, color, float, frontFacing, If, max, mix, normalWorld, positionWorld, vec2, vec3, vec4 } from 'three/tsl'
 
 export class MeshDefaultMaterial extends THREE.MeshLambertNodeMaterial
 {

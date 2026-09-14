@@ -1,6 +1,6 @@
 import { normalizePath } from 'vite'
 import wasm from 'vite-plugin-wasm'
-import basicSsl from '@vitejs/plugin-basic-ssl'
+// import basicSsl from '@vitejs/plugin-basic-ssl'
 
 export default {
     root: 'sources/', // Sources files (typically where index.html is)

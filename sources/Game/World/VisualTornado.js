@@ -1,5 +1,5 @@
+import { cos, atan, uniform, PI, color, positionLocal, sin, texture, Fn, uv, vec2, vec3, vec4, mix, step, max, smoothstep, remap } from 'three/tsl'
 import * as THREE from 'three/webgpu'
-import { luminance, cos, float, min, atan, uniform, pass, PI, PI2, color, positionLocal, oneMinus, sin, texture, Fn, uv, vec2, vec3, vec4, mix, step, max, smoothstep, remap, dashSize, gapSize } from 'three/tsl'
 import { Game } from '../Game.js'
 
 const skewedUv = Fn(([ uv, skew ]) =>

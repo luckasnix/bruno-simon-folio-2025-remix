@@ -1,7 +1,6 @@
+import { color, Fn, mix, texture, uniform, vec2 } from 'three/tsl'
 import * as THREE from 'three/webgpu'
 import { Game } from './Game.js'
-import MeshGridMaterial, { MeshGridMaterialLine } from './Materials/MeshGridMaterial.js'
-import { color, Fn, mix, round, smoothstep, texture, uniform, uv, vec2 } from 'three/tsl'
 
 export class Terrain
 {

@@ -1,5 +1,5 @@
+import { uv, float, Fn, uniform, color, mix, vec4, texture, luminance } from 'three/tsl'
 import * as THREE from 'three/webgpu'
-import { positionLocal, varying, uv, max, positionWorld, float, Fn, uniform, color, mix, vec3, vec4, normalWorld, texture, vec2, time, smoothstep, luminance } from 'three/tsl'
 import { Game } from './Game.js'
 import { MeshDefaultMaterial } from './Materials/MeshDefaultMaterial.js'
 

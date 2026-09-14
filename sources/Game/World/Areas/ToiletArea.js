@@ -1,5 +1,4 @@
 import * as THREE from 'three/webgpu'
-import { Game } from '../../Game.js'
 import { Area } from './Area.js'
 
 export class ToiletArea extends Area

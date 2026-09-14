@@ -1,9 +1,8 @@
+import { Fn, positionWorld } from 'three/tsl'
 import * as THREE from 'three/webgpu'
 import { Game } from '../Game.js'
 import MeshGridMaterial, { MeshGridMaterialLine } from '../Materials/MeshGridMaterial.js'
-import { float, normalWorld, positionWorld, vec3, vec4 } from 'three/tsl'
 import { MeshDefaultMaterial } from '../Materials/MeshDefaultMaterial.js'
-import { Fn } from 'three/tsl'
 
 export class Grid
 {

@@ -1,7 +1,7 @@
+import gsap from 'gsap'
+import { atan, Fn, PI2, positionGeometry, texture, uniform, uv, vec2, vec3, vec4 } from 'three/tsl'
 import * as THREE from 'three/webgpu'
 import { Game } from '../Game.js'
-import { atan, float, Fn, PI, PI2, positionGeometry, texture, uniform, uv, vec2, vec3, vec4 } from 'three/tsl'
-import gsap from 'gsap'
 import { Inputs } from '../Inputs/Inputs.js'
 
 export class Intro

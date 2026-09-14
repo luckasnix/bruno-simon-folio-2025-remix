@@ -1,10 +1,10 @@
+import { alea } from 'seedrandom'
+import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js'
+import { uniform, mix, instance, smoothstep, rotateUV, uv, texture, float, Fn, positionLocal, normalWorld, screenUV, vec2, screenSize } from 'three/tsl'
+// import { vec3, vec4 } from 'three/tsl'
 import * as THREE from 'three/webgpu'
 import { Game } from '../Game.js'
-import { color, uniform, mix, output, instance, smoothstep, min, vec4, PI, vertexIndex, rotateUV, sin, uv, texture, float, Fn, positionLocal, vec3, transformNormalToView, normalWorld, positionWorld, frontFacing, If, screenUV, vec2, screenSize, instanceIndex, varying, range, positionGeometry, storage, instancedBufferAttribute, normalLocal } from 'three/tsl'
-import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js'
-import { remap } from '../utilities/maths.js'
 import { MeshDefaultMaterial } from '../Materials/MeshDefaultMaterial.js'
-import { alea } from 'seedrandom'
 
 const rng = new alea('foliage')
 

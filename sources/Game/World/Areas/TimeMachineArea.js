@@ -1,8 +1,8 @@
+import gsap from 'gsap'
+import { Fn, texture, uv, vec2, vec4 } from 'three/tsl'
 import * as THREE from 'three/webgpu'
 import { InteractivePoints } from '../../InteractivePoints.js'
 import { Area } from './Area.js'
-import { Fn, texture, uv, vec2, vec3, vec4 } from 'three/tsl'
-import gsap from 'gsap'
 
 export class TimeMachineArea extends Area
 {

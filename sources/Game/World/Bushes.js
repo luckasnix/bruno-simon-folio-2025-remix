@@ -1,4 +1,3 @@
-import * as THREE from 'three/webgpu'
 import { color, uniform } from 'three/tsl'
 import { Foliage } from './Foliage.js'
 import { Game } from '../Game.js'

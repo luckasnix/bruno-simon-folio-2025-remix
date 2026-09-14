@@ -1,8 +1,8 @@
+import gsap from 'gsap'
+import { cos, Fn, instance, instancedArray, instanceIndex, positionLocal, remapClamp, sin, uniform, uniformArray, vec3 } from 'three/tsl'
 import * as THREE from 'three/webgpu'
 import { Game } from '../Game.js'
 import { MeshDefaultMaterial } from '../Materials/MeshDefaultMaterial.js'
-import { add, cameraProjectionMatrix, cameraViewMatrix, color, cos, float, Fn, instance, instancedArray, instanceIndex, modelWorldMatrix, positionGeometry, positionLocal, positionWorld, remapClamp, sin, uniform, uniformArray, vec3, vec4 } from 'three/tsl'
-import gsap from 'gsap'
 
 export class Confetti
 {

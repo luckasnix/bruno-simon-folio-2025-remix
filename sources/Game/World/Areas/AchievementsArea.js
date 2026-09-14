@@ -1,9 +1,9 @@
+import { alea } from 'seedrandom'
+import { color, cos, float, Fn, instancedArray, instanceIndex, min, mix, positionGeometry, sin, texture, uniform, uv, varying, vec2, vec3 } from 'three/tsl'
 import * as THREE from 'three/webgpu'
-import { add, color, cos, float, Fn, instancedArray, instancedBufferAttribute, instanceIndex, max, min, mix, PI2, positionGeometry, positionWorld, sin, texture, uniform, uv, varying, vec2, vec3, vec4 } from 'three/tsl'
 import { InteractivePoints } from '../../InteractivePoints.js'
 import { MeshDefaultMaterial } from '../../Materials/MeshDefaultMaterial.js'
 import { Area } from './Area.js'
-import { alea } from 'seedrandom'
 
 const rng = new alea('achievements')
 

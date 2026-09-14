@@ -1,9 +1,9 @@
-import { Game } from './Game.js'
 import gsap from 'gsap'
-import { remapClamp, smallestAngle } from './utilities/maths.js'
-import * as THREE from 'three/webgpu'
-import { Inputs } from './Inputs/Inputs.js'
 import { clamp } from 'three/src/math/MathUtils.js'
+import * as THREE from 'three/webgpu'
+import { Game } from './Game.js'
+import { remapClamp } from './utilities/maths.js'
+import { Inputs } from './Inputs/Inputs.js'
 
 export class Player
 {

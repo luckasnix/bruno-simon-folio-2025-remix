@@ -1,10 +1,10 @@
+import { hashBlur } from 'three/examples/jsm/tsl/display/hashBlur.js'
+// import { boxBlur } from 'three/examples/jsm/tsl/display/boxBlur.js'
+import { color, float, Fn, hash, max, positionWorld, screenUV, select, texture, uniform, vec3, vec4, viewportSharedTexture } from 'three/tsl'
 import * as THREE from 'three/webgpu'
 import { Game } from '../Game.js'
-import { blendOverlay, color, float, Fn, hash, linearDepth, max, mix, output, positionGeometry, positionLocal, positionWorld, screenUV, select, sin, smoothstep, step, texture, uniform, uv, vec2, vec3, vec4, viewportLinearDepth, viewportSharedTexture } from 'three/tsl'
-import { lerp, remap, remapClamp } from '../utilities/maths.js'
-import { hashBlur } from 'three/examples/jsm/tsl/display/hashBlur.js'
+import { lerp, remapClamp } from '../utilities/maths.js'
 import { MeshDefaultMaterial } from '../Materials/MeshDefaultMaterial.js'
-import { boxBlur } from 'three/examples/jsm/tsl/display/boxBlur.js'
 
 export class WaterSurface
 {

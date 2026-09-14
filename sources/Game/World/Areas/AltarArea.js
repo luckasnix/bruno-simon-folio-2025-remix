@@ -1,8 +1,6 @@
-import * as THREE from 'three/webgpu'
-import { Game } from '../../Game.js'
-import { attribute, clamp, color, float, Fn, instancedArray, instanceIndex, luminance, max, min, mix, smoothstep, step, texture, uniform, uv, varying, vec2, vec3, vec4 } from 'three/tsl'
 import gsap from 'gsap'
-import { alea } from 'seedrandom'
+import { color, float, Fn, instancedArray, instanceIndex, min, mix, smoothstep, step, texture, uniform, uv, varying, vec2, vec3, vec4 } from 'three/tsl'
+import * as THREE from 'three/webgpu'
 import { Area } from './Area.js'
 
 export class AltarArea extends Area

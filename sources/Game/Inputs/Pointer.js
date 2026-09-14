@@ -1,4 +1,3 @@
-import * as THREE from 'three/webgpu'
 import { Events } from '../Events.js'
 
 export class Pointer

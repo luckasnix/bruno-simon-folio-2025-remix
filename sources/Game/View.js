@@ -1,14 +1,14 @@
-import * as THREE from 'three/webgpu'
 import CameraControls from 'camera-controls'
-import { Game } from './Game.js'
-import { clamp, lerp, remap, smoothstep } from './utilities/maths.js'
-import { mix, uniform, vec4, Fn, positionGeometry, attribute } from 'three/tsl'
 import gsap from 'gsap'
-import { Pointer } from './Inputs/Pointer.js'
-import { Inputs } from './Inputs/Inputs.js'
 import { alea } from 'seedrandom'
 import { LineGeometry } from 'three/examples/jsm/lines/LineGeometry.js'
-import { Line2 } from 'three/examples/jsm/lines/webgpu/Line2.js'
+// import { Line2 } from 'three/examples/jsm/lines/webgpu/Line2.js'
+import { mix, uniform, vec4, Fn, positionGeometry, attribute } from 'three/tsl'
+import * as THREE from 'three/webgpu'
+import { Game } from './Game.js'
+import { clamp, lerp, remap, smoothstep } from './utilities/maths.js'
+import { Pointer } from './Inputs/Pointer.js'
+// import { Inputs } from './Inputs/Inputs.js'
 
 CameraControls.install( { THREE: THREE } )
 

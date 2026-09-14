@@ -1,11 +1,11 @@
+import gsap from 'gsap'
+import { clamp } from 'three/src/math/MathUtils.js'
+import { cameraPosition, color, Fn, min, mix, normalWorld, positionWorld, screenCoordinate, texture, uniform, uv, vec2, vec3, vec4 } from 'three/tsl'
 import * as THREE from 'three/webgpu'
 import { Game } from '../Game.js'
 import { Track } from '../Tracks.js'
 import { Trails } from '../Trails.js'
 import { remapClamp } from '../utilities/maths.js'
-import { cameraPosition, color, Fn, min, mix, normalWorld, positionViewDirection, positionWorld, screenCoordinate, texture, uniform, uv, vec2, vec3, vec4 } from 'three/tsl'
-import { clamp } from 'three/src/math/MathUtils.js'
-import gsap from 'gsap'
 import { MeshDefaultMaterial } from '../Materials/MeshDefaultMaterial.js'
 
 export class VisualVehicle

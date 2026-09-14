@@ -1,4 +1,3 @@
-import * as THREE from 'three/webgpu'
 import { Cycles } from './Cycles.js'
 
 export class YearCycles extends Cycles

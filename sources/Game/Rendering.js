@@ -1,9 +1,9 @@
-import * as THREE from 'three/webgpu'
-import { pass, mrt, output, emissive, renderOutput, vec4 } from 'three/tsl'
+import { Inspector } from 'three/addons/inspector/Inspector.js'
 import { bloom } from 'three/addons/tsl/display/BloomNode.js'
+import { pass, renderOutput } from 'three/tsl'
+import * as THREE from 'three/webgpu'
 import { Game } from './Game.js'
 import { cheapDOF } from './Passes/cheapDOF.js'
-import { Inspector } from 'three/addons/inspector/Inspector.js'
 
 export class Rendering
 {

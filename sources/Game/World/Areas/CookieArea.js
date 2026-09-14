@@ -1,11 +1,9 @@
-import * as THREE from 'three/webgpu'
-import { Game } from '../../Game.js'
-import { color, float, Fn, instancedArray, mix, normalWorld, positionGeometry, step, texture, uniform, uv, vec2, vec3, vec4 } from 'three/tsl'
-import { InstancedGroup } from '../../InstancedGroup.js'
 import gsap from 'gsap'
+import { color, float, Fn, instancedArray, mix, positionGeometry, step, texture, uniform, uv, vec2, vec3, vec4 } from 'three/tsl'
+import * as THREE from 'three/webgpu'
+import { InstancedGroup } from '../../InstancedGroup.js'
 import { InteractivePoints } from '../../InteractivePoints.js'
 import { MeshDefaultMaterial } from '../../Materials/MeshDefaultMaterial.js'
-import { alea } from 'seedrandom'
 import { Area } from './Area.js'
 
 export class CookieArea extends Area

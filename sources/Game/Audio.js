@@ -1,8 +1,8 @@
-import * as THREE from 'three/webgpu'
-import { Howl, Howler } from 'howler'
-import { Game } from './Game.js'
-import { remap, remapClamp, clamp } from './utilities/maths.js'
 import gsap from 'gsap'
+import { Howl, Howler } from 'howler'
+import * as THREE from 'three/webgpu'
+import { Game } from './Game.js'
+import { remapClamp, clamp } from './utilities/maths.js'
 import { Events } from './Events.js'
 
 export class Audio

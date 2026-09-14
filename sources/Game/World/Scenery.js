@@ -1,4 +1,4 @@
-import { color, float, Fn, max, PI, positionWorld, texture, uniform, uv, vec3 } from 'three/tsl'
+import { color, float, Fn, PI, positionWorld, texture, uniform, uv, vec3 } from 'three/tsl'
 import { Game } from '../Game.js'
 import { References } from '../References.js'
 import { MeshDefaultMaterial } from '../Materials/MeshDefaultMaterial.js'

@@ -1,7 +1,8 @@
-import { TempNode } from 'three/webgpu'
-import { nodeObject, Fn, uv, uniform, convertToTexture, vec2, vec3, vec4, mat3, luminance, add, mix } from 'three/tsl'
-import { boxBlur } from 'three/examples/jsm/tsl/display/boxBlur.js'
 import { hashBlur } from 'three/examples/jsm/tsl/display/hashBlur.js'
+// import { boxBlur } from 'three/examples/jsm/tsl/display/boxBlur.js'
+import { nodeObject, Fn, uv, uniform, convertToTexture, mix } from 'three/tsl'
+// import { vec3, vec4 } from 'three/tsl'
+import { TempNode } from 'three/webgpu'
 
 class CheapDOFNode extends TempNode
 {

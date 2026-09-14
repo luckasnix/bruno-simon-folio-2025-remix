@@ -1,10 +1,9 @@
+import emojiRegex from 'emoji-regex'
+import gsap from 'gsap'
+import { Fn, instanceIndex, hash, positionGeometry, smoothstep, storage, texture, uv, vec2, vec3, vec4 } from 'three/tsl'
 import * as THREE from 'three/webgpu'
 import { Game } from '../Game.js'
-import { billboarding, cameraPosition, color, Fn, instanceIndex, log, min, mix, modelViewMatrix, mul, normalWorld, positionGeometry, positionViewDirection, positionWorld, smoothstep, storage, texture, time, uv, vec2, vec3, vec4 } from 'three/tsl'
-import { hash } from 'three/tsl'
-import gsap from 'gsap'
 import { Bubble } from './Bubble.js'
-import emojiRegex from 'emoji-regex'
 import { InputFlag } from '../InputFlag.js'
 
 export class Whispers

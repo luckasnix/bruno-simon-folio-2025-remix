@@ -1,8 +1,7 @@
-import * as THREE from 'three/webgpu'
-import { Game } from '../../Game.js'
-import { color, float, Fn, luminance, max, mix, positionGeometry, step, texture, uniform, uv, vec4 } from 'three/tsl'
 import gsap from 'gsap'
 import { clamp } from 'three/src/math/MathUtils.js'
+import { color, float, Fn, luminance, max, mix, positionGeometry, step, texture, uniform, uv, vec4 } from 'three/tsl'
+import * as THREE from 'three/webgpu'
 import { Area } from './Area.js'
 
 export class CareerArea extends Area

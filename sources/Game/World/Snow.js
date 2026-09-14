@@ -1,6 +1,7 @@
+import { attribute, color, cross, float, Fn, If, min, modelViewMatrix, positionGeometry, positionWorld, rotateUV, texture, uniform, uv, varying, vec2, vec3, vec4 } from 'three/tsl'
+// import { viewportSize } from 'three/tsl'
 import * as THREE from 'three/webgpu'
 import { Game } from '../Game.js'
-import { attribute, cameraNormalMatrix, color, cross, dot, float, Fn, hash, If, materialNormal, min, mix, modelNormalMatrix, modelViewMatrix, normalWorld, PI, PI2, positionGeometry, positionLocal, positionWorld, rotateUV, step, texture, time, uniform, uv, uvec4, varying, vec2, vec3, vec4, viewportSize } from 'three/tsl'
 import { clamp, remapClamp } from '../utilities/maths.js'
 import { MeshDefaultMaterial } from '../Materials/MeshDefaultMaterial.js'
 

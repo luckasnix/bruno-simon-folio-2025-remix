@@ -1,9 +1,8 @@
-import * as THREE from 'three/webgpu'
-import { Game } from '../../Game.js'
-import { InteractivePoints } from '../../InteractivePoints.js'
-import { clamp, lerp, remapClamp } from '../../utilities/maths.js'
 import gsap from 'gsap'
-import { color, float, Fn, instancedBufferAttribute, instanceIndex, max, min, mix, positionGeometry, sin, step, texture, uniform, uv, vec2, vec3, vec4 } from 'three/tsl'
+import { color, float, Fn, instancedBufferAttribute, instanceIndex, positionGeometry, sin, step, texture, uniform, uv, vec2, vec3, vec4 } from 'three/tsl'
+import * as THREE from 'three/webgpu'
+import { InteractivePoints } from '../../InteractivePoints.js'
+import { clamp, remapClamp } from '../../utilities/maths.js'
 import { InstancedGroup } from '../../InstancedGroup.js'
 import { Area } from './Area.js'
 

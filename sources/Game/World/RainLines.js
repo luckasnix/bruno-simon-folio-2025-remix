@@ -1,8 +1,8 @@
+import { attribute, Fn, fract, mod, step, uniform, vec2, vec3 } from 'three/tsl'
 import * as THREE from 'three/webgpu'
 import { Game } from '../Game.js'
-import { attribute, clamp, color, float, Fn, fract, hash, instancedArray, instanceIndex, max, mod, normalWorld, positionGeometry, rotateUV, sin, smoothstep, step, texture, uniform, vec2, vec3, vec4 } from 'three/tsl'
 import { MeshDefaultMaterial } from '../Materials/MeshDefaultMaterial.js'
-import { lerp, remap, remapClamp } from '../utilities/maths.js'
+import { lerp, remapClamp } from '../utilities/maths.js'
 
 export class RainLines
 {

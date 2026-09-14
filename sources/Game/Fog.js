@@ -1,4 +1,5 @@
-import { color, float, mix, positionWorld, rangeFogFactor, screenCoordinate, uniform, vec2, vec3, viewportUV } from 'three/tsl'
+import { color, mix, rangeFogFactor, uniform, vec2, viewportUV } from 'three/tsl'
+// import { float } from 'three/tsl'
 import { Game } from './Game.js'
 
 export class Fog

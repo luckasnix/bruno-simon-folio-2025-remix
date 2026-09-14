@@ -1,8 +1,8 @@
+import { color, float, Fn, hash, instancedArray, instanceIndex, materialNormal, max, mix, mod, modelViewMatrix, normalWorld, positionGeometry, rotateUV, sin, step, texture, uniform, vec2, vec3, vec4 } from 'three/tsl'
+// import { remapClamp } from 'three/tsl'
 import * as THREE from 'three/webgpu'
 import { Game } from '../Game.js'
-import { color, float, Fn, hash, instancedArray, instanceIndex, materialNormal, max, mix, mod, modelViewMatrix, normalWorld, positionGeometry, remapClamp, rotateUV, sin, smoothstep, step, texture, uniform, vec2, vec3, vec4 } from 'three/tsl'
 import { remap } from '../utilities/maths.js'
-import gsap from 'gsap'
 import { MeshDefaultMaterial } from '../Materials/MeshDefaultMaterial.js'
 
 export class Leaves

@@ -1,7 +1,6 @@
 import { uniform } from 'three/tsl'
 import { Events } from './Events.js'
 import { Game } from './Game.js'
-import gsap from 'gsap'
 
 export class Ticker
 {

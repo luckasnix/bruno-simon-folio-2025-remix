@@ -1,9 +1,9 @@
+import gsap from 'gsap'
+import { color, float, Fn, instancedArray, step, texture, uniform, uv } from 'three/tsl'
 import * as THREE from 'three/webgpu'
-import { color, float, Fn, instancedArray, mix, normalWorld, positionGeometry, step, texture, uniform, uv, vec2, vec3, vec4 } from 'three/tsl'
 import { Inputs } from '../../Inputs/Inputs.js'
 import { InteractivePoints } from '../../InteractivePoints.js'
 import { Area } from './Area.js'
-import gsap from 'gsap'
 import { MeshDefaultMaterial } from '../../Materials/MeshDefaultMaterial.js'
 
 export class LandingArea extends Area

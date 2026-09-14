@@ -1,4 +1,3 @@
-import * as THREE from 'three/webgpu'
 import { Game } from '../Game.js'
 import { FragmentObject } from './FragmentObject.js'
 

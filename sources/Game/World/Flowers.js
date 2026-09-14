@@ -1,10 +1,9 @@
+import { alea } from 'seedrandom'
+import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js'
+import { color, Fn, instance, positionLocal, uniform, vec3 } from 'three/tsl'
 import * as THREE from 'three/webgpu'
 import { Game } from '../Game.js'
-import { attribute, color, float, Fn, instance, instancedBufferAttribute, instanceIndex, luminance, mix, normalWorld, positionLocal, texture, uniform, uniformArray, uv, vec3, vec4 } from 'three/tsl'
-import { remap, smoothstep } from '../utilities/maths.js'
-import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js'
 import { MeshDefaultMaterial } from '../Materials/MeshDefaultMaterial.js'
-import { alea } from 'seedrandom'
 
 const rng = new alea('flowers')
 

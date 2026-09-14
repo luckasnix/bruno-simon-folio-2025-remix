@@ -1,7 +1,7 @@
+import gsap from 'gsap'
+import { color, Fn, max, mix, step, texture, uniform, uv, vec2, vec3, vec4 } from 'three/tsl'
 import * as THREE from 'three/webgpu'
 import { Game } from './Game.js'
-import { color, distance, float, Fn, max, min, mix, mul, normalWorld, positionWorld, step, texture, uniform, uv, vec2, vec3, vec4 } from 'three/tsl'
-import gsap from 'gsap'
 import { Inputs } from './Inputs/Inputs.js'
 
 export class InteractivePoints

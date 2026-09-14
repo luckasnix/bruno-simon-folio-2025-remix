@@ -1,8 +1,7 @@
+import { If, vec2, vec3, vec4, mod, Fn, dot, sin, fract, length, mul, float, uv, floor, ceil, smoothstep, int, mix, Loop, viewportUV } from 'three/tsl';
+// import { texture } from 'three/tsl'
 import * as THREE from 'three/webgpu'
 import { Game } from './Game.js'
-
-
-import { If, vec2, vec3, abs, sqrt, vec4, mod, Fn, dot, sin, fract, length, mul, min, float, uv, floor, ceil, smoothstep, int, mix, Loop, texture, viewportCoordinate, viewportUV } from 'three/tsl';
 
 const hash = /*#__PURE__*/ Fn( ( [ p_immutable ] ) => {
 
