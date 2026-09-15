@@ -1,7 +1,7 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { spawn } from "node:child_process";
-import { glob } from "glob";
+import { glob } from "node:fs/promises";
 import sharp from "sharp";
 
 /**
@@ -13,15 +13,13 @@ import sharp from "sharp";
     path.dirname(path.join(fileURLToPath(import.meta.url), "..")),
     process.argv[2],
   );
-  const files = await glob(`${directory}/**/*.glb`, {
-    ignore: {
-      ignored: (p) => {
-        return /-(draco|ktx|compressed).glb$/.test(p.name);
-      },
-    },
+  const files = glob("**/*.glb", {
+    cwd: directory,
+    exclude: (file) => /-(draco|ktx|compressed).glb$/.test(file),
   });
 
-  for (const inputFile of files) {
+  for await (const file of files) {
+    const inputFile = path.join(directory, file);
     const ktx2File = inputFile.replace(".glb", "-compressed.glb");
     const dracoFile = inputFile.replace(".glb", "-compressed.glb");
 
@@ -79,8 +77,9 @@ import sharp from "sharp";
     path.dirname(path.join(fileURLToPath(import.meta.url), "..")),
     process.argv[2],
   );
-  const files = await glob(`${directory}/**/*.{png,jpg}`, {
-    ignore: "**/{ui,favicons,social}/**",
+  const files = glob("**/*.{png,jpg}", {
+    cwd: directory,
+    exclude: ["**/{ui,favicons,social}/**"],
   });
 
   const defaultPreset =
@@ -139,7 +138,8 @@ import sharp from "sharp";
     ],
   ];
 
-  for (const inputFile of files) {
+  for await (const file of files) {
+    const inputFile = path.join(directory, file);
     const ktx2File = inputFile.replace(/\.(png|jpg)$/, ".ktx");
 
     let preset = presets.find((preset) => preset[0].test(inputFile));
@@ -172,9 +172,10 @@ import sharp from "sharp";
     path.dirname(path.join(fileURLToPath(import.meta.url), "..")),
     process.argv[2],
   );
-  const files = await glob(`${directory}/ui/**/*.{png,jpg}`);
+  const files = glob("ui/**/*.{png,jpg}", { cwd: directory });
 
-  for (const inputFile of files) {
+  for await (const file of files) {
+    const inputFile = path.join(directory, file);
     const webpFile = inputFile.replace(/\.(png|jpg)$/, ".webp");
 
     await sharp(inputFile).webp({ quality: 80 }).toFile(webpFile);

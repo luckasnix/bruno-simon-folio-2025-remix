@@ -35,7 +35,6 @@
   "devDependencies": {
     "@gltf-transform/cli": "4.5.0",
     "@vitejs/plugin-basic-ssl": "2.3.0",
-    "glob": "13.0.6",
     "oxfmt": "0.67.0",
     "oxlint": "1.82.0",
     "sharp": "0.35.4",
@@ -43,7 +42,7 @@
     "vite-plugin-wasm": "3.6.0"
   },
   "engines": {
-    "node": "^20.19.0 || >=22.12.0"
+    "node": ">=24.11.1"
   },
   "packageManager": "pnpm@12.4.1"
 }
